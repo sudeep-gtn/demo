@@ -20,7 +20,6 @@ class Customer(models.Model):
         ('G', 'Gold')
     ]
 
-
     first_name = models.CharField(max_length = 25)
     last_name = models.CharField(max_length = 25)
     email = models.EmailField(max_length = 50, unique = True)
@@ -40,8 +39,6 @@ class Order(models.Model):
         (PAYMENT_COMPLETE,'Complete'),
         (PAYMENT_FAILED, 'Failed')
     ]
-
-
     placed_at = models.DateTimeField(auto_now = True)
     payment_status = models.CharField(max_length = 1, choices= PAYMENT_STATUS, default= PAYMENT_PENDING)
     customer = models.ForeignKey(Customer,related_name = 'orders', on_delete = models.CASCADE)
@@ -52,3 +49,5 @@ class Address(models.Model):
     city = models.CharField(max_length = 255)
     customer = models.OneToOneField(Customer, on_delete = models.CASCADE)
 
+class Cart(models.Model):
+    product = models.ForeignKey(Product,on_delete = models.CASCADE)
