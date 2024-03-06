@@ -5,5 +5,6 @@ from django.http import HttpResponse
 def say_hello(request):
     return render(request, 'hello.html', {'name': 'Sudeep', 'age':19})
 
+
 def say_goodmorning(request):
     return HttpResponse("Hello I want to say you Good Morning .....")

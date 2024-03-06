@@ -1,7 +1,9 @@
 from django.db import models
-
+from faker import Faker
 from django.db import models
-
+import django
+import random 
+import os
 class Product(models.Model):
     title = models.CharField(max_length = 255)
     description = models.TextField()
@@ -51,3 +53,21 @@ class Address(models.Model):
 
 class Cart(models.Model):
     product = models.ForeignKey(Product,on_delete = models.CASCADE)
+
+
+
+# creating mock data
+os.environ.setdefault("ABCD", "newsite.settings")
+django.setup()
+
+fake = Faker()
+NUM_PRODUCTS = 10
+
+for _ in range(NUM_PRODUCTS):
+    title = fake.sentence(nb_words=4, variable_nb_words=True, ext_word_list=None)
+    description = fake.paragraph(nb_sentences=3, variable_nb_sentences=True, ext_word_list=None)
+    price = round(random.uniform(10, 1000), 2)
+    inventory = random.randint(1, 100)
+    product = Product.objects.create(title=title, description=description, price=price, inventory=inventory)
+    print(f"Created product with title: {product.title}")
+
