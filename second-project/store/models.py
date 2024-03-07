@@ -10,6 +10,8 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=6 , decimal_places=2)
     inventory = models.IntegerField()
     last_update = models.DateTimeField(auto_now = True)
+    # def __str__(self):
+    #     self.title
 
 class Customer(models.Model):
     MEMBERSHIP_BRONZE = 'B'
@@ -70,4 +72,5 @@ class Cart(models.Model):
 #     inventory = random.randint(1, 100)
 #     product = Product.objects.create(title=title, description=description, price=price, inventory=inventory)
 #     print(f"Created product with title: {product.title}")
+
 
