@@ -1,0 +1,12 @@
+asgiref==3.7.2
+Django==5.0.3
+django-debug-toolbar==4.3.0
+Faker==24.0.0
+mysqlclient==2.2.4
+psycopg2==2.9.9
+pyngrok==7.1.4
+python-dateutil==2.9.0.post0
+PyYAML==6.0.1
+six==1.16.0
+sqlparse==0.4.4
+typing_extensions==4.10.0
