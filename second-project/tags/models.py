@@ -1,5 +1,5 @@
 from django.db import models
-from store.models import Product
+from stores.models import Product
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes.fields import GenericForeignKey
 

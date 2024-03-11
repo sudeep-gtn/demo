@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-+t9*16nhucgy*lj-i(caab@@w@_0mu%kea%62m0qp9#@0@ad2w
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '192.168.11.203', '0.0.0.0']
+ALLOWED_HOSTS = ['.ngrok-free.app','127.0.0.1']
 
 
 # Application definition
@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "debug_toolbar",
-    'store',
+    'stores',
     'tags',
 ]
 
@@ -148,3 +148,6 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+

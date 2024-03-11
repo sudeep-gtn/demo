@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from store.models import Product
+from stores.models import Product
 
 urlpatterns = [
     path("hello/", views.say_hello),

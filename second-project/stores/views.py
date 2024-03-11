@@ -1,11 +1,14 @@
 import os
 from django.shortcuts import render
+from django.utils import timezone
 from django.http import HttpResponse
 # Create your views here.
 # import Q operator (Query)
 from django.db.models import Q
 from django.core.exceptions import ObjectDoesNotExist
-from store.models import Product
+from stores.models import Product
+from stores.models import Customer
+
 def say_hello(request):
     return render(request, 'hello.html', {'name': 'Sudeep', 'age':19})
 def say_goodmorning(request):
@@ -19,6 +22,33 @@ def say_goodmorning(request):
 #     # Add more products here as needed
 # ]
 # Product.objects.bulk_create(products_to_create)
+
+
+# customer1 = Customer.objects.create(
+#     first_name='Sudeep',
+#     last_name='Bogati',
+#     email='sudeep@example.com',
+#     phone=1234567890,
+#     birth_date=timezone.now().date(),
+#     membership=Customer.MEMBERSHIP_SILVER
+# )
+
+# customer2  = Customer.objects.create(
+#         first_name='Sodeep',
+#         last_name='Chhetry',
+#         email='the_sudeep@example.com',
+#         phone=1234567890,   
+#         birth_date=timezone.now().date(),
+#         membership=Customer.MEMBERSHIP_SILVER
+#     ),
+# customer3 = Customer.objects.create(
+#         first_name='John',
+#         last_name='Doe',
+#         email='john.doe@example.com',
+#         phone=1234567890,
+#         birth_date=timezone.now().date(),
+#         membership=Customer.MEMBERSHIP_SILVER
+#     )
 
 def get_prods(request):
     products = Product.objects.all()
@@ -44,6 +74,6 @@ def delete_all(request):
     Product.objects.all().delete()
     return HttpResponse("Successfully deleted data from the table ")
 
-
 # def welcome_msg(request):
 #     return render(request, 'welcome.html', {'name': 'Sudeep', 'products':get_prods})
+
